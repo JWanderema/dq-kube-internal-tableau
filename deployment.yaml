@@ -2,13 +2,13 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: internaltableau
+  name: staginginternaltableau
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: internaltableau
+        name: staginginternaltableau
     spec:
       containers:
         - name: opensslsidekick
@@ -23,7 +23,7 @@ spec:
             - name: HOST
               value: '10.3.0.11'
             - name: PORT
-              value: '8081'
+              value: '8083'
           ports:
             - containerPort: 5000
 
@@ -36,7 +36,7 @@ spec:
             - name: PROXY_SERVICE_HOST
               value: 'https://10.3.0.11'
             - name: PROXY_SERVICE_PORT
-              value: '8081'
+              value: '8083'
             - name: LOG_FORMAT_NAME
               value: 'json'
             - name: NAXSI_USE_DEFAULT_RULES

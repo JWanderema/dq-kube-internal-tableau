@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: internaltableau
+  name: staginginternaltableau
   labels:
     stable.k8s.psg.io/kcm.class: default
   annotations:
@@ -16,12 +16,12 @@ spec:
   tls:
   - hosts:
     - {{ .URL }}
-    secretName: internaltableau-tls
+    secretName: staginginternaltableau-tls
   rules:
   - host: {{ .URL }}
     http:
       paths:
       - backend:
-          serviceName: internaltableau
+          serviceName: staginginternaltableau
           servicePort: https
         path: /
